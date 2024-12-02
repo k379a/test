@@ -28,9 +28,8 @@
         const contactIcon = document.getElementById('contact-icon');
 
         // 각 페이지에 따라 다른 이미지로 교체
-        if (currentPage.includes('index.html')) {
-            homeIcon.src = 'img/rect_icon01_on.png';
-        } else if (currentPage.includes('')) {
+        if (currentPage.endsWith('/') || currentPage.includes('index.html')) {
+            // index.html이 있거나 '/'인 경우
             homeIcon.src = 'img/rect_icon01_on.png';
         } else if (currentPage.includes('profile.html')) {
             profileIcon.src = 'img/rect_icon02_on.png';
