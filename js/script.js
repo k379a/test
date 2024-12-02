@@ -31,7 +31,7 @@
         if (currentPage.includes('index.html')) {
             homeIcon.src = 'img/rect_icon01_on.png';
         } else if (currentPage.includes('')) {
-            profileIcon.src = 'img/rect_icon01_on.png';
+            homeIcon.src = 'img/rect_icon01_on.png';
         } else if (currentPage.includes('profile.html')) {
             profileIcon.src = 'img/rect_icon02_on.png';
         } else if (currentPage.includes('detail.html')) {
