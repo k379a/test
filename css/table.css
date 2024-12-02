@@ -1,0 +1,33 @@
+table {
+            width: 100%;
+            border-collapse: collapse; /* 테두리 겹침 제거 */
+            margin-top: 20px;
+            font-family: 'Noto Sans KR', sans-serif; /* 테이블 글씨체 설정 */
+        }
+        table th, table td {
+            text-align: center; /* 텍스트 중앙 정렬 */
+            padding: 10px; /* 셀 내부 여백 */
+            border: 1px solid #ccc; /* 셀 테두리 */
+        }
+        table th {
+            background-color: #f7f7f7; /* 헤더 배경색 */
+            font-weight: bold; /* 헤더 글씨 굵게 */
+        }
+        table tfoot th, table tfoot td {
+            font-weight: lighter; /* 푸터 글씨 굵기 기본값 */
+        }
+    	/* 풋터가 짝수 행일 때 배경색 설정 */
+    	table tfoot tr:nth-child(even) th, 
+    	table tfoot tr:nth-child(even) td {
+            background-color: #f9f9f9; /* 짝수 행 배경색 */
+        }
+        table tfoot tr:hover td, 
+	table tfoot tr:hover th {
+            background-color: #f1f1f1; /* 마우스 오버 시 배경색 */
+        }
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* 짝수 행 배경색 */
+        }
+        table tbody tr:hover {
+            background-color: #f1f1f1; /* 마우스 오버 시 배경색 */
+        }
