@@ -126,7 +126,7 @@
     <div id="content">
         <h1>로그인</h1>
         <form id="login-form">
-            <input type="email" class="input-field" placeholder="이메일" required>
+            <input type="email" class="input-field" placeholder="이메일" required id="email-input">
             <input type="password" class="input-field" placeholder="비밀번호" required>
             <button type="submit" class="button">로그인</button>
         </form>
@@ -134,5 +134,11 @@
 
     <!-- JavaScript 파일 연결 -->
     <script src="js/script.js"></script>
+    <script>
+        // 페이지가 로드되면 이메일 입력 칸에 포커스 설정
+        window.onload = function() {
+            document.getElementById('email-input').focus(); // 이름 입력 칸에 포커스
+        };              
+    </script>
 </body>
 </html>

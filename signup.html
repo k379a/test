@@ -145,10 +145,15 @@
     <div id="content">
         <h1>회원가입</h1>
         <form id="signup-form">
-            <input type="text" class="input-field" placeholder="이름" required>
-            <input type="email" class="input-field" placeholder="이메일" required>
-            <input type="password" class="input-field" placeholder="비밀번호" required>
-            <input type="password" class="input-field" placeholder="비밀번호 확인" required>
+            <input type="email" class="input-field" placeholder="이메일" required id="email-input">
+            <input type="text" class="input-field" placeholder="이름" required id="name-input">
+            <input type="password" class="input-field" id="memPassword1" onkeyup="passwordCheck()" placeholder="비밀번호" required>
+            <input type="password" class="input-field" id="memPassword2" onkeyup="passwordCheck()" placeholder="비밀번호 확인" required>
+            <div id="passMessage" style="font-size: 12px;"></div>
+            <div>
+                <label><input type="radio" name="gender" value="m" checked>남자</label>
+                <label><input type="radio" name="gender" value="f">여자</label>
+            </div>
             <div>
                 선호음식:
                 <label><input type="checkbox" name="food" value="korean" checked> 한식</label>
@@ -179,6 +184,10 @@
     <script src="js/script.js"></script>
 
     <script>
+        // 페이지가 로드되면 이름 입력 칸에 포커스 설정
+        window.onload = function() {
+            document.getElementById('email-input').focus(); // 이메일 입력 칸에 포커스
+        };        
         // 확인 다이얼로그
         document.getElementById('signup-form').addEventListener('submit', (event) => {
             event.preventDefault(); // 기본 제출 동작 방지
@@ -187,6 +196,20 @@
                 alert("회원가입이 완료되었습니다.");
             }
         });
+        //패스워드 확인
+        function passwordCheck() {
+            const memPassword1 = document.getElementById("memPassword1").value;
+            const memPassword2 = document.getElementById("memPassword2").value;
+            const passMessage = document.getElementById("passMessage");
+
+            if (memPassword1 !== memPassword2) {
+                passMessage.textContent = "비밀번호가 서로 일치하지 않습니다.";
+                passMessage.style.color = "#f82a2aa3";
+            } else {
+                passMessage.textContent = "비밀번호가 서로 일치합니다.";
+                passMessage.style.color = "#199894b3";
+            }
+        }
     </script>
 </body>
 </html>

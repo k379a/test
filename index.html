@@ -126,13 +126,13 @@
     <div id="content">
         <h1></h1>
             <h2>프로필</h2>
-            <p>나를 소개합니다.</p>
+            <p>나를 소개합니다./하는일</p>
             <h2>상세페이지</h2>
-            <p>상세정보를 보여줍니다.</p>
+            <p>관심정보를 보여줍니다./시간표를 보여줍니다.</p>
             <h2>위치</h2>
             <p>한성대 지도를 보여줍니다.</p>
             <h2>연락처</h2>
-            <p>한성대 연락처를 보여줍니다.</p>
+            <p>한성대 연락처를 보여줍니다./학과소개를 합니다.</p>
     </div>
 
     <!-- 하단 인증 버튼 -->
@@ -151,7 +151,71 @@
                 location.href = 'signup.html';
             }
         }
-    </script>
-    
+        function openPopup() {
+            // 로컬 스토리지에 'popupShown'이 없을 경우에만 팝업을 연다.
+            if (!localStorage.getItem('popupShown')) {
+                const popup = window.open("", "팝업창", "width=330,height=390");
+                popup.document.write(`
+                    <style>
+                        /* 팝업 스타일 */
+                        .popup-content {
+                            width: 280px;
+                            height: 365px;
+                            background-color: #f9f9f9; /* 팝업 배경색 */
+                            border: 2px solid #ccc; /* 경계선 색상 */
+                            border-radius: 10px; /* 모서리 둥글게 */
+                            padding: 20px; /* 내부 여백 */
+                            text-align: center; /* 중앙 정렬 */
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+                            position: relative; /* 버튼 위치를 위해 상대 위치 설정 */
+                        }
+                        .popup-button-container {
+                            display: flex; /* 버튼들을 수평으로 배치 */
+                            justify-content: center; /* 버튼들을 중앙 정렬 */
+                            gap: 10px; /* 버튼 사이 간격 */
+                            margin-top: 20px; /* 버튼과 내용 사이의 여백 */
+                        }
+                        .popup-close-button, .do-not-show-button {
+                            padding: 5px 15px; /* 버튼 패딩 */
+                            border: none; /* 버튼 경계선 제거 */
+                            border-radius: 5px; /* 버튼 모서리 둥글게 */
+                            cursor: pointer; /* 마우스 커서 포인터로 변경 */
+                            transition: background-color 0.3s; /* 배경색 변화 효과 */
+                        }
+                        .popup-close-button {
+                            background-color: black; /* 닫기 버튼 배경색 */
+                            color: white; /* 닫기 버튼 텍스트 색상 */
+                        }
+                        .popup-close-button:hover {
+                            background-color: #60BBFF; /* 마우스를 올리면 배경색 변화 */
+                        }
+                        .do-not-show-button {
+                            background-color: black; /* 다시 보지 않기 버튼 배경색 */
+                            color: white; /* 다시 보지 않기 버튼 텍스트 색상 */
+                        }
+                        .do-not-show-button:hover {
+                            background-color: #60BBFF; /* 마우스를 올리면 배경색 변화 */
+                        }
+                    </style>
+                    <div class="popup-content">
+                        <h1>공지사항</h1>
+                        <p>메뉴 마우스 호버</p>
+                        <p>각페이지 메뉴 이미지 변경</p>
+                        <p>회원가입버튼 확인 메세지 띄움</p>
+                        <p>회원가입시 이메일 바로 쓰기 가능</p>
+                        <p>로그인시 이메일 바로 쓰기 기능</p>
+                        <p>회원가입시 비밀번호 일치 불일치 표시</p>
+                        <p>공지사항 다신보지않기 기능</p>
+                        <button class='popup-close-button' onclick='window.close()'>닫기</button>
+                        <button class='do-not-show-button' onclick='localStorage.setItem("popupShown", "true"); window.close();'>다시 보지 않기</button>
+                    </div>
+                `);
+                popup.document.close(); // 문서 닫기
+            }
+        }
+        window.onload = function() {
+            openPopup(); // 페이지 로드 시 팝업 열기
+        };
+    </script>  
 </body>
 </html>
